@@ -11,8 +11,11 @@ const resolvers = {
   Mutation: {
     createLink: (root, args, context, info) =>
       context.prisma.createLink({ ...args }),
-    // updateLink: (root, args, context, info) =>
-    //   context.prisma.updateLink({ data: { url:  }, where: { id: args.id } }),
+    updateLink: (root, args, context, info) =>
+      context.prisma.updateLink({
+        data: { url: args.url, description: args.description },
+        where: { id: args.id }
+      }),
     deleteLink: (root, args, context, info) =>
       context.prisma.deleteLink({ id: args.id })
   }
