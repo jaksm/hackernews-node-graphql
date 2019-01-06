@@ -4,4 +4,16 @@ type Link {
   updatedAt: DateTime!
   description: String!
   url: String!
+  postedBy: User
+}
+
+type User {
+  id: ID! @unique
+  email: String! @unique
+  name: String!
+  username: String!
+  password: String!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+  links: [Link!]!
 }
